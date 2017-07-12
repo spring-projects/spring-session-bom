@@ -1,0 +1,9 @@
+dependencyManagement {
+	dependencies {
+		dependency 'org.springframework.session:spring-session-core:2.0.0.BUILD-SNAPSHOT'
+		dependency 'org.springframework.session:spring-session-data-redis:2.0.0.BUILD-SNAPSHOT'
+		dependency 'org.springframework.session:spring-session-data-mongodb:2.0.0.BUILD-SNAPSHOT'
+		dependency 'org.springframework.session:spring-session-hazelcast:2.0.0.BUILD-SNAPSHOT'
+		dependency 'org.springframework.session:spring-session-jdbc:2.0.0.BUILD-SNAPSHOT'
+	}
+}
