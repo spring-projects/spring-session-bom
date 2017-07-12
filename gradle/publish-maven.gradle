@@ -1,0 +1,39 @@
+install {
+	repositories.mavenInstaller {
+		pom.whenConfigured { generatedPom ->
+			packaging = 'pom'
+			generatedPom.project {
+				name = project.name
+				description = project.description
+				url = 'https://projects.spring.io/spring-session/'
+				organization {
+					name = 'spring.io'
+					url = 'https://spring.io/'
+				}
+				licenses {
+					license {
+						name = 'The Apache Software License, Version 2.0'
+						url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+						distribution 'repo'
+					}
+				}
+				scm {
+					url = 'https://github.com/spring-projects/spring-session-bom'
+					connection = 'scm:git:git://github.com/spring-projects/spring-session-bom'
+					developerConnection = 'scm:git:git://github.com/spring-projects/spring-session-bom'
+				}
+				developers {
+					developer {
+						id = 'rwinch'
+						name = 'Rob Winch'
+						email = 'rwinch@pivotal.io'
+					}
+				}
+				issueManagement {
+					system = 'GitHub'
+					url = 'https://github.com/spring-projects/spring-session/issues'
+				}
+			}
+		}
+	}
+}

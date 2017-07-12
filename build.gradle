@@ -14,6 +14,7 @@ apply plugin: 'maven'
 apply plugin: 'io.spring.convention.artifactory'
 apply plugin: 'io.spring.convention.root'
 apply plugin: 'io.spring.convention.springdependencymangement'
+apply from: "$rootDir/gradle/publish-maven.gradle"
 
 description = 'Spring Session Maven Bill of Materials (BOM)'
 group = 'org.springframework.session'
