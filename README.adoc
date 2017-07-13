@@ -1,0 +1,77 @@
+= Spring Session BOM
+
+This repository contains Spring Session Maven Bill of Materials (BOM).
+
+== Using the BOM with Maven
+
+With Maven, you need to import the BOM first:
+
+[source, xml]
+----
+<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-bom</artifactId>
+			<version>Aa-BUILD-SNAPSHOT</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+----
+
+Notice the use of the `<dependencyManagement>` section and the `import` scope.
+
+Next, add your dependencies to the project without a `<version>`:
+
+[source, xml]
+----
+<dependencies>
+	<dependency>
+		<groupId>org.springframework.session</groupId>
+		<artifactId>spring-session-data-redis</artifactId>
+	</dependency>
+</dependencies>
+----
+
+== Using the BOM with Gradle
+
+Since Gradle has no first-class support for Maven BOMs, you can use Spring's https://plugins.gradle.org/plugin/io.spring.dependency-management[Dependency management plugin].
+
+Apply the plugin from Gradle Plugin Portal (update the version if needed):
+
+[source, gradle]
+----
+plugins {
+	id 'io.spring.dependency-management' version '1.0.3.RELEASE'
+}
+----
+
+Then use it to import the BOM:
+
+[source, gradle]
+----
+dependencyManagement {
+	imports {
+		mavenBom 'org.springframework.session:spring-session-bom:Aa-BUILD-SNAPSHOT'
+	}
+}
+----
+
+Finally, add a dependency to the project without a version:
+
+[source, gradle]
+----
+dependencies {
+	compile 'org.springframework.session:spring-session-data-redis'
+}
+----
+
+= Spring Session Project Site
+
+You can find the documentation, issue management, support, samples, and guides for using Spring Session at https://projects.spring.io/spring-session/.
+
+= License
+
+Spring Session is Open Source software released under the https://www.apache.org/licenses/LICENSE-2.0.html[Apache 2.0 license].
