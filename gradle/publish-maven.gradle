@@ -3,24 +3,19 @@ install {
 		pom.whenConfigured { generatedPom ->
 			packaging = 'pom'
 			generatedPom.project {
-				name = project.name
+				name = project.description
 				description = project.description
 				url = 'https://projects.spring.io/spring-session/'
 				organization {
-					name = 'spring.io'
+					name = 'Pivotal Software, Inc.'
 					url = 'https://spring.io/'
 				}
 				licenses {
 					license {
-						name = 'The Apache Software License, Version 2.0'
-						url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
-						distribution 'repo'
+						name = 'Apache License, Version 2.0'
+						url = 'https://www.apache.org/licenses/LICENSE-2.0'
+						distribution = 'repo'
 					}
-				}
-				scm {
-					url = 'https://github.com/spring-projects/spring-session-bom'
-					connection = 'scm:git:git://github.com/spring-projects/spring-session-bom'
-					developerConnection = 'scm:git:git://github.com/spring-projects/spring-session-bom'
 				}
 				developers {
 					developer {
@@ -28,6 +23,11 @@ install {
 						name = 'Rob Winch'
 						email = 'rwinch@pivotal.io'
 					}
+				}
+				scm {
+					url = 'https://github.com/spring-projects/spring-session-bom'
+					connection = 'scm:git:git://github.com/spring-projects/spring-session-bom'
+					developerConnection = 'scm:git:git://github.com/spring-projects/spring-session-bom'
 				}
 				issueManagement {
 					system = 'GitHub'
