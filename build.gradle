@@ -1,6 +1,6 @@
 buildscript {
 	dependencies {
-		classpath 'io.spring.gradle:spring-build-conventions:0.0.3.BUILD-SNAPSHOT'
+		classpath 'io.spring.gradle:spring-build-conventions:0.0.3.RELEASE'
 	}
 
 	repositories {
@@ -13,10 +13,20 @@ apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'io.spring.convention.artifactory'
 apply plugin: 'io.spring.convention.root'
-apply plugin: 'io.spring.convention.springdependencymangement'
-apply from: "$rootDir/gradle/publish-maven.gradle"
 
 description = 'Spring Session Maven Bill of Materials (BOM)'
 group = 'org.springframework.session'
+
+configurations.archives.artifacts.clear()
+
+def txt = file('spring-session-bom.txt')
+def pom = file('pom.xml')
+
+artifacts {
+	archives txt
+	archives(pom) {
+		type 'pom'
+	}
+}
 
 sonarqube.skipProject = true

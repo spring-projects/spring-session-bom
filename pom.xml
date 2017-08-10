@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.springframework.session</groupId>
+	<artifactId>spring-session-bom</artifactId>
+	<version>Aa-BUILD-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Spring Session Maven Bill of Materials (BOM)</name>
+	<description>Spring Session Maven Bill of Materials (BOM)</description>
+	<url>https://projects.spring.io/spring-session/</url>
+
+	<organization>
+		<name>Pivotal Software, Inc.</name>
+		<url>https://spring.io/</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>rwinch</id>
+			<name>Rob Winch</name>
+			<email>rwinch@pivotal.io</email>
+		</developer>
+	</developers>
+
+	<scm>
+		<url>https://github.com/spring-projects/spring-session-bom</url>
+		<connection>scm:git:git@github.com/spring-projects/spring-session-bom.git</connection>
+		<developerConnection>scm:git:git@github.com/spring-projects/spring-session-bom.git</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/spring-projects/spring-session/issues</url>
+	</issueManagement>
+
+	<properties>
+		<spring-session.version>2.0.0.BUILD-SNAPSHOT</spring-session.version>
+		<spring-session-data-geode.version>2.0.0.BUILD-SNAPSHOT</spring-session-data-geode.version>
+		<spring-session-data-mongodb.version>2.0.0.BUILD-SNAPSHOT</spring-session-data-mongodb.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Spring Session Core -->
+			<dependency>
+				<groupId>org.springframework.session</groupId>
+				<artifactId>spring-session-core</artifactId>
+				<version>${spring-session.version}</version>
+			</dependency>
+			<!-- Spring Session Data Geode -->
+			<dependency>
+				<groupId>org.springframework.session</groupId>
+				<artifactId>spring-session-data-geode</artifactId>
+				<version>${spring-session-data-geode.version}</version>
+			</dependency>
+			<!-- Spring Session Data Redis -->
+			<dependency>
+				<groupId>org.springframework.session</groupId>
+				<artifactId>spring-session-data-redis</artifactId>
+				<version>${spring-session.version}</version>
+			</dependency>
+			<!-- Spring Session Data MongoDB -->
+			<dependency>
+				<groupId>org.springframework.session</groupId>
+				<artifactId>spring-session-data-mongodb</artifactId>
+				<version>${spring-session-data-mongodb.version}</version>
+			</dependency>
+			<!-- Spring Session Hazelcast -->
+			<dependency>
+				<groupId>org.springframework.session</groupId>
+				<artifactId>spring-session-hazelcast</artifactId>
+				<version>${spring-session.version}</version>
+			</dependency>
+			<!-- Spring Session JDBC -->
+			<dependency>
+				<groupId>org.springframework.session</groupId>
+				<artifactId>spring-session-jdbc</artifactId>
+				<version>${spring-session.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>
