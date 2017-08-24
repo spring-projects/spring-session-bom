@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 buildscript {
 	dependencies {
 		classpath 'io.spring.gradle:spring-build-conventions:0.0.3.RELEASE'
@@ -20,7 +22,7 @@ group = 'org.springframework.session'
 configurations.archives.artifacts.clear()
 
 def txt = file('spring-session-bom.txt')
-def pom = file('pom.xml')
+def pom = file("$buildDir/poms/pom.xml")
 
 artifacts {
 	archives txt
@@ -28,5 +30,23 @@ artifacts {
 		type 'pom'
 	}
 }
+
+task generatePom() {
+	def srcDir = 'src'
+	def pomsDir = "$buildDir/poms"
+
+	inputs.files fileTree(srcDir)
+	outputs.dir pomsDir
+
+	doLast {
+		copy {
+			from srcDir
+			into pomsDir
+			filter(ReplaceTokens, tokens: [version: project.version])
+		}
+	}
+}
+
+install.dependsOn generatePom
 
 sonarqube.skipProject = true

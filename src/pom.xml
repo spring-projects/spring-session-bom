@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.session</groupId>
 	<artifactId>spring-session-bom</artifactId>
-	<version>Aa-BUILD-SNAPSHOT</version>
+	<version>@version@</version>
 	<packaging>pom</packaging>
 
 	<name>Spring Session Maven Bill of Materials (BOM)</name>
@@ -65,17 +65,17 @@
 				<artifactId>spring-session-data-geode</artifactId>
 				<version>${spring-session-data-geode.version}</version>
 			</dependency>
-			<!-- Spring Session Data Redis -->
-			<dependency>
-				<groupId>org.springframework.session</groupId>
-				<artifactId>spring-session-data-redis</artifactId>
-				<version>${spring-session.version}</version>
-			</dependency>
 			<!-- Spring Session Data MongoDB -->
 			<dependency>
 				<groupId>org.springframework.session</groupId>
 				<artifactId>spring-session-data-mongodb</artifactId>
 				<version>${spring-session-data-mongodb.version}</version>
+			</dependency>
+			<!-- Spring Session Data Redis -->
+			<dependency>
+				<groupId>org.springframework.session</groupId>
+				<artifactId>spring-session-data-redis</artifactId>
+				<version>${spring-session.version}</version>
 			</dependency>
 			<!-- Spring Session Hazelcast -->
 			<dependency>
