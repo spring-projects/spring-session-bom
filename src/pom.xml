@@ -47,7 +47,6 @@
 
 	<properties>
 		<spring-session.version>2.0.0.BUILD-SNAPSHOT</spring-session.version>
-		<spring-session-data-geode.version>2.0.0.BUILD-SNAPSHOT</spring-session-data-geode.version>
 		<spring-session-data-mongodb.version>2.0.0.BUILD-SNAPSHOT</spring-session-data-mongodb.version>
 	</properties>
 
@@ -58,12 +57,6 @@
 				<groupId>org.springframework.session</groupId>
 				<artifactId>spring-session-core</artifactId>
 				<version>${spring-session.version}</version>
-			</dependency>
-			<!-- Spring Session Data Geode -->
-			<dependency>
-				<groupId>org.springframework.session</groupId>
-				<artifactId>spring-session-data-geode</artifactId>
-				<version>${spring-session-data-geode.version}</version>
 			</dependency>
 			<!-- Spring Session Data MongoDB -->
 			<dependency>
