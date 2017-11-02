@@ -46,8 +46,8 @@
 	</issueManagement>
 
 	<properties>
-		<spring-session.version>2.0.0.BUILD-SNAPSHOT</spring-session.version>
-		<spring-session-data-mongodb.version>2.0.0.BUILD-SNAPSHOT</spring-session-data-mongodb.version>
+		<spring-session.version>2.0.0.RC1</spring-session.version>
+		<spring-session-data-mongodb.version>2.0.0.RC1</spring-session-data-mongodb.version>
 	</properties>
 
 	<dependencyManagement>
