@@ -12,7 +12,7 @@ try {
 		node {
 			checkout scm
 			try {
-				sh "./gradlew clean check --no-daemon --stacktrace"
+				sh "./gradlew clean check --refresh-dependencies --no-daemon --stacktrace"
 			}
 			catch (Exception e) {
 				currentBuild.result = 'FAILED: check'

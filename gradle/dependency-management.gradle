@@ -1,0 +1,17 @@
+ext {
+	coreVersion = '2.0.1.RELEASE'
+	dataMongoDbVersion = '2.0.0.RELEASE'
+	dataRedisVersion = coreVersion
+	hazelcastVersion = coreVersion
+	jdbcVersion = coreVersion
+}
+
+dependencyManagement {
+	dependencies {
+		dependency "org.springframework.session:spring-session-core:$coreVersion"
+		dependency "org.springframework.session:spring-session-data-mongodb:$dataMongoDbVersion"
+		dependency "org.springframework.session:spring-session-data-redis:$dataRedisVersion"
+		dependency "org.springframework.session:spring-session-hazelcast:$hazelcastVersion"
+		dependency "org.springframework.session:spring-session-jdbc:$jdbcVersion"
+	}
+}
