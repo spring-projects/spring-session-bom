@@ -9,9 +9,7 @@ buildscript {
 	}
 }
 
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'io.spring.convention.artifactory'
+apply plugin: 'io.spring.convention.bom'
 apply plugin: 'io.spring.convention.root'
 apply plugin: 'io.spring.convention.springdependencymangement'
 
@@ -24,49 +22,68 @@ artifacts {
 	archives file('spring-session-bom.txt')
 }
 
+dependencyManagement {
+	generatedPomCustomization {
+		enabled = true
+	}
+}
+
 install {
 	repositories.mavenInstaller {
 		pom.whenConfigured { pom ->
-			pom.project {
-				packaging = 'pom'
-				name = project.description
-				description = project.description
-				url = 'https://projects.spring.io/spring-session/'
+			customizePom(pom, project)
+		}
+	}
+}
 
-				organization {
-					name = 'Pivotal Software, Inc.'
-					url = 'https://spring.io/'
-				}
+uploadArchives {
+	repositories.mavenInstaller {
+		pom.whenConfigured { pom ->
+			customizePom(pom, project)
+		}
+	}
+}
 
-				licenses {
-					license {
-						name = 'Apache License, Version 2.0'
-						url = 'https://www.apache.org/licenses/LICENSE-2.0'
-						distribution = 'repo'
-					}
-				}
+def customizePom(pom, project) {
+	pom.project {
+		packaging = 'pom'
+		name = project.description
+		description = project.description
+		url = 'https://projects.spring.io/spring-session/'
 
-				developers {
-					developer {
-						id = 'rwinch'
-						name = 'Rob Winch'
-						email = 'rwinch@pivotal.io'
-					}
-				}
+		organization {
+			name = 'Pivotal Software, Inc.'
+			url = 'https://spring.io/'
+		}
 
-				scm {
-					url = 'https://github.com/spring-projects/spring-session-bom'
-					connection = 'scm:git:git@github.com/spring-projects/spring-session-bom.git'
-					developerConnection = 'scm:git:git@github.com/spring-projects/spring-session-bom.git'
-				}
-
-				issueManagement {
-					system = 'GitHub'
-					url = 'https://github.com/spring-projects/spring-session/issues'
-				}
+		licenses {
+			license {
+				name = 'Apache License, Version 2.0'
+				url = 'https://www.apache.org/licenses/LICENSE-2.0'
+				distribution = 'repo'
 			}
+		}
+
+		developers {
+			developer {
+				id = 'rwinch'
+				name = 'Rob Winch'
+				email = 'rwinch@pivotal.io'
+			}
+		}
+
+		scm {
+			url = 'https://github.com/spring-projects/spring-session-bom'
+			connection = 'scm:git:git@github.com/spring-projects/spring-session-bom.git'
+			developerConnection = 'scm:git:git@github.com/spring-projects/spring-session-bom.git'
+		}
+
+		issueManagement {
+			system = 'GitHub'
+			url = 'https://github.com/spring-projects/spring-session/issues'
 		}
 	}
 }
 
 sonarqube.skipProject = true
+mavenBom.enabled = false
