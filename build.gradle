@@ -16,8 +16,6 @@ apply plugin: 'io.spring.convention.springdependencymangement'
 group = 'org.springframework.session'
 description = 'Spring Session Maven Bill of Materials (BOM)'
 
-configurations.archives.artifacts.clear()
-
 artifacts {
 	archives file('spring-session-bom.txt')
 }
