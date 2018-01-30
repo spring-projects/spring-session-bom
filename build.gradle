@@ -9,9 +9,10 @@ buildscript {
 	}
 }
 
-apply plugin: 'io.spring.convention.bom'
 apply plugin: 'io.spring.convention.root'
 apply plugin: 'io.spring.convention.springdependencymangement'
+apply plugin: 'io.spring.convention.maven'
+apply plugin: 'io.spring.convention.artifactory'
 
 group = 'org.springframework.session'
 description = 'Spring Session Maven Bill of Materials (BOM)'
@@ -83,5 +84,16 @@ def customizePom(pom, project) {
 	}
 }
 
+task deployArtifacts {
+	group = 'Deploy tasks'
+	description = 'Deploys the artifacts to either Artifactory or Maven Central'
+}
+
+if (version.endsWith('-RELEASE')) {
+	deployArtifacts.dependsOn uploadArchives
+}
+else {
+	deployArtifacts.dependsOn artifactoryPublish
+}
+
 sonarqube.skipProject = true
-mavenBom.enabled = false
