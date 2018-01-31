@@ -27,23 +27,10 @@ dependencyManagement {
 	}
 }
 
-install {
-	repositories.mavenInstaller {
-		pom.whenConfigured { pom ->
-			customizePom(pom, project)
-		}
-	}
-}
+def installer = install.repositories.mavenInstaller
+def deployer = uploadArchives.repositories.mavenDeployer
 
-uploadArchives {
-	repositories.mavenInstaller {
-		pom.whenConfigured { pom ->
-			customizePom(pom, project)
-		}
-	}
-}
-
-def customizePom(pom, project) {
+[installer, deployer]*.pom*.whenConfigured { pom ->
 	pom.project {
 		packaging = 'pom'
 		name = project.description
