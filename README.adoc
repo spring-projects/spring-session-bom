@@ -54,7 +54,7 @@ Then use it to import the BOM:
 ----
 dependencyManagement {
 	imports {
-		mavenBom 'org.springframework.session:spring-session-bom:Bean-RC1'
+		mavenBom 'org.springframework.session:spring-session-bom:Bean-RELEASE'
 	}
 }
 ----
