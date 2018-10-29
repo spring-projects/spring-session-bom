@@ -13,7 +13,7 @@ With Maven, you need to import the BOM first:
 		<dependency>
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session-bom</artifactId>
-			<version>Bean-RC1</version>
+			<version>Bean-RELEASE</version>
 			<type>pom</type>
 			<scope>import</scope>
 		</dependency>
