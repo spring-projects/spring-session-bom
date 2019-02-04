@@ -13,7 +13,7 @@ With Maven, you need to import the BOM first:
 		<dependency>
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session-bom</artifactId>
-			<version>Apple-SR6</version>
+			<version>Apple-SR8</version>
 			<type>pom</type>
 			<scope>import</scope>
 		</dependency>
@@ -54,7 +54,7 @@ Then use it to import the BOM:
 ----
 dependencyManagement {
 	imports {
-		mavenBom 'org.springframework.session:spring-session-bom:Apple-SR6'
+		mavenBom 'org.springframework.session:spring-session-bom:Apple-SR8'
 	}
 }
 ----
