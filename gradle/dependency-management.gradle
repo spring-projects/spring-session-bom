@@ -1,6 +1,6 @@
 ext {
 	coreVersion = '2.1.5.RELEASE'
-	dataGeodeVersion = '2.1.2.RELEASE'
+	dataGeodeVersion = '2.1.3.RELEASE'
 	dataMongoDbVersion = '2.1.1.RELEASE'
 
 	dataGemFireVersion = dataGeodeVersion
