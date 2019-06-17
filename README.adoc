@@ -13,7 +13,7 @@ With Maven, you need to import the BOM first:
 		<dependency>
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session-bom</artifactId>
-			<version>Corn-M1</version>
+			<version>Corn-M2</version>
 			<type>pom</type>
 			<scope>import</scope>
 		</dependency>
@@ -44,7 +44,7 @@ Apply the plugin from Gradle Plugin Portal (update the version if needed):
 [source, gradle]
 ----
 plugins {
-	id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 ----
 
@@ -54,7 +54,7 @@ Then use it to import the BOM:
 ----
 dependencyManagement {
 	imports {
-		mavenBom 'org.springframework.session:spring-session-bom:Corn-M1'
+		mavenBom 'org.springframework.session:spring-session-bom:Corn-M2'
 	}
 }
 ----
@@ -68,10 +68,10 @@ dependencies {
 }
 ----
 
-= Spring Session Project Site
+== Spring Session Project Site
 
 You can find the documentation, issue management, support, samples, and guides for using Spring Session at https://projects.spring.io/spring-session/.
 
-= License
+== License
 
 Spring Session is Open Source software released under the https://www.apache.org/licenses/LICENSE-2.0.html[Apache 2.0 license].
