@@ -1,5 +1,5 @@
 ext {
-	coreVersion = '2.2.0.M2'
+	coreVersion = '2.2.0.BUILD-SNAPSHOT'
 	dataGeodeVersion = '2.2.0.M2'
 	dataMongoDbVersion = '2.2.0.M3'
 
