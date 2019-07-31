@@ -1,3 +1,5 @@
+:release-version: Corn-M2
+:dependency-management-plugin-version: 1.0.8.RELEASE
 = Spring Session BOM
 
 This repository contains Spring Session Maven Bill of Materials (BOM).
@@ -6,14 +8,14 @@ This repository contains Spring Session Maven Bill of Materials (BOM).
 
 With Maven, you need to import the BOM first:
 
-[source, xml]
+[source,xml,subs="normal"]
 ----
 <dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session-bom</artifactId>
-			<version>Corn-M2</version>
+			<version>{release-version}</version>
 			<type>pom</type>
 			<scope>import</scope>
 		</dependency>
@@ -25,7 +27,7 @@ Notice the use of the `<dependencyManagement>` section and the `import` scope.
 
 Next, add your dependencies to the project without a `<version>`:
 
-[source, xml]
+[source,xml]
 ----
 <dependencies>
 	<dependency>
@@ -41,27 +43,27 @@ Since Gradle has no first-class support for Maven BOMs, you can use Spring's htt
 
 Apply the plugin from Gradle Plugin Portal (update the version if needed):
 
-[source, gradle]
+[source,gradle,subs="normal"]
 ----
 plugins {
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'io.spring.dependency-management' version '{dependency-management-plugin-version}'
 }
 ----
 
 Then use it to import the BOM:
 
-[source, gradle]
+[source,gradle,subs="normal"]
 ----
 dependencyManagement {
 	imports {
-		mavenBom 'org.springframework.session:spring-session-bom:Corn-M2'
+		mavenBom 'org.springframework.session:spring-session-bom:{release-version}'
 	}
 }
 ----
 
 Finally, add a dependency to the project without a version:
 
-[source, gradle]
+[source,gradle]
 ----
 dependencies {
 	compile 'org.springframework.session:spring-session-data-redis'
