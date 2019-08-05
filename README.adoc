@@ -1,4 +1,4 @@
-:release-version: Bean-SR6
+:release-version: Bean-SR7
 :dependency-management-plugin-version: 1.0.8.RELEASE
 = Spring Session BOM
 
