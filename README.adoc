@@ -1,4 +1,4 @@
-:release-version: Corn-M2
+:release-version: Corn-M3
 :dependency-management-plugin-version: 1.0.8.RELEASE
 = Spring Session BOM
 
