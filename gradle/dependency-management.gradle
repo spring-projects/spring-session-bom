@@ -2,8 +2,6 @@ ext {
 	coreVersion = '2.2.0.RC1'
 	dataGeodeVersion = '2.2.0.M4'
 	dataMongoDbVersion = '2.2.0.RELEASE'
-
-	dataGemFireVersion = dataGeodeVersion
 	dataRedisVersion = coreVersion
 	hazelcastVersion = coreVersion
 	jdbcVersion = coreVersion
@@ -12,7 +10,6 @@ ext {
 dependencyManagement {
 	dependencies {
 		dependency "org.springframework.session:spring-session-core:$coreVersion"
-		dependency "org.springframework.session:spring-session-data-gemfire:$dataGemFireVersion"
 		dependency "org.springframework.session:spring-session-data-geode:$dataGeodeVersion"
 		dependency "org.springframework.session:spring-session-data-mongodb:$dataMongoDbVersion"
 		dependency "org.springframework.session:spring-session-data-redis:$dataRedisVersion"
