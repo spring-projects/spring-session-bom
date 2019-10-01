@@ -1,4 +1,4 @@
-:release-version: Corn-M3
+:release-version: Corn-M4
 :dependency-management-plugin-version: 1.0.8.RELEASE
 = Spring Session BOM
 
@@ -39,9 +39,18 @@ Next, add your dependencies to the project without a `<version>`:
 
 == Using the BOM with Gradle
 
-Since Gradle has no first-class support for Maven BOMs, you can use Spring's https://plugins.gradle.org/plugin/io.spring.dependency-management[Dependency management plugin].
+With Gradle's native support for Maven BOMs, import the BOM using:
 
-Apply the plugin from Gradle Plugin Portal (update the version if needed):
+[source,gradle,subs="normal"]
+----
+dependencies {
+	implementation platform('org.springframework.session:spring-session-bom:{release-version}')
+}
+----
+
+Alternatively, you can use Spring's https://plugins.gradle.org/plugin/io.spring.dependency-management[Dependency management plugin].
+
+Apply the plugin from Gradle Plugin Portal:
 
 [source,gradle,subs="normal"]
 ----
@@ -66,7 +75,7 @@ Finally, add a dependency to the project without a version:
 [source,gradle]
 ----
 dependencies {
-	compile 'org.springframework.session:spring-session-data-redis'
+	implementation 'org.springframework.session:spring-session-data-redis'
 }
 ----
 
