@@ -1,15 +1,13 @@
 ### Gradle ###
-.gradle
-build
+.gradle/
+build/
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iml
-*.ipr
-*.iws
 
 ### Eclipse ###
-.classpath
+.settings/
 .project
-.settings
-.springBeans
+
+!buildSrc/src/main/java/org/springframework/session/build/

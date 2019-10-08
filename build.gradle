@@ -1,86 +1,87 @@
-buildscript {
-	dependencies {
-		classpath 'io.spring.gradle:spring-build-conventions:0.0.25.RELEASE'
-	}
+import org.springframework.session.build.VersionHelper
 
-	repositories {
-		gradlePluginPortal()
-		maven { url 'https://repo.spring.io/plugins-release/' }
-	}
+plugins {
+	id 'java-platform'
+	id 'maven-publish'
+	id 'signing'
+	id 'com.jfrog.artifactory' version '4.9.10'
 }
 
-apply plugin: 'io.spring.convention.root'
-apply plugin: 'io.spring.convention.springdependencymangement'
-apply plugin: 'io.spring.convention.maven'
-apply plugin: 'io.spring.convention.artifactory'
+ext {
+	coreVersion = '2.2.0.RC1'
+	dataGeodeVersion = '2.2.0.RC1'
+	dataMongoDbVersion = '2.2.0.RELEASE'
+	dataRedisVersion = coreVersion
+	hazelcastVersion = coreVersion
+	jdbcVersion = coreVersion
+}
 
 group = 'org.springframework.session'
 description = 'Spring Session Maven Bill of Materials (BOM)'
 
-artifacts {
-	archives file('spring-session-bom.txt')
-}
-
-dependencyManagement {
-	generatedPomCustomization {
-		enabled = true
+dependencies {
+	constraints {
+		api "org.springframework.session:spring-session-core:$coreVersion"
+		api "org.springframework.session:spring-session-data-geode:$dataGeodeVersion"
+		api "org.springframework.session:spring-session-data-mongodb:$dataMongoDbVersion"
+		api "org.springframework.session:spring-session-data-redis:$dataRedisVersion"
+		api "org.springframework.session:spring-session-hazelcast:$hazelcastVersion"
+		api "org.springframework.session:spring-session-jdbc:$jdbcVersion"
 	}
 }
 
-def installer = install.repositories.mavenInstaller
-def deployer = uploadArchives.repositories.mavenDeployer
-
-[installer, deployer]*.pom*.whenConfigured { pom ->
-	pom.project {
-		packaging = 'pom'
-		name = project.description
-		description = project.description
-		url = 'https://projects.spring.io/spring-session/'
-
-		organization {
-			name = 'Pivotal Software, Inc.'
-			url = 'https://spring.io/'
-		}
-
-		licenses {
-			license {
-				name = 'Apache License, Version 2.0'
-				url = 'https://www.apache.org/licenses/LICENSE-2.0'
-				distribution = 'repo'
+publishing {
+	publications {
+		mavenBom(MavenPublication) {
+			from components.javaPlatform
+			pom {
+				withXml {
+					// remove scope information from published BOM
+					asNode().dependencyManagement.first().dependencies.first().each {
+						it.remove(it.scope.first())
+					}
+				}
+				url = 'https://projects.spring.io/spring-session/'
+				organization {
+					name = 'Pivotal Software, Inc.'
+					url = 'https://spring.io/'
+				}
+				licenses {
+					license {
+						name = 'Apache License, Version 2.0'
+						url = 'https://www.apache.org/licenses/LICENSE-2.0'
+						distribution = 'repo'
+					}
+				}
+				developers {
+					developer {
+						id = 'rwinch'
+						name = 'Rob Winch'
+						email = 'rwinch@pivotal.io'
+					}
+				}
+				scm {
+					url = 'https://github.com/spring-projects/spring-session-bom'
+					connection = 'scm:git:git@github.com/spring-projects/spring-session-bom.git'
+					developerConnection = 'scm:git:git@github.com/spring-projects/spring-session-bom.git'
+				}
+				issueManagement {
+					system = 'GitHub'
+					url = 'https://github.com/spring-projects/spring-session/issues'
+				}
 			}
-		}
-
-		developers {
-			developer {
-				id = 'rwinch'
-				name = 'Rob Winch'
-				email = 'rwinch@pivotal.io'
-			}
-		}
-
-		scm {
-			url = 'https://github.com/spring-projects/spring-session-bom'
-			connection = 'scm:git:git@github.com/spring-projects/spring-session-bom.git'
-			developerConnection = 'scm:git:git@github.com/spring-projects/spring-session-bom.git'
-		}
-
-		issueManagement {
-			system = 'GitHub'
-			url = 'https://github.com/spring-projects/spring-session/issues'
 		}
 	}
+}
+
+signing {
+	sign publishing.publications.mavenBom
 }
 
 task deployArtifacts {
-	group = 'Deploy tasks'
+	dependsOn {
+		VersionHelper.isRelease(project) ? uploadArchives : artifactoryPublish
+	}
 	description = 'Deploys the artifacts to either Artifactory or Maven Central'
+	group = 'publishing'
 }
-
-if (version.matches(/^.*-RELEASE$/) || version.matches(/^.*-SR\d+$/)) {
-	deployArtifacts.dependsOn uploadArchives
-}
-else {
-	deployArtifacts.dependsOn artifactoryPublish
-}
-
-sonarqube.skipProject = true
