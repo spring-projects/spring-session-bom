@@ -2,7 +2,7 @@ import io.spring.nohttp.gradle.NoHttpCheckstylePlugin
 
 buildscript {
 	dependencies {
-		classpath 'io.spring.gradle:spring-build-conventions:0.0.26.RELEASE'
+		classpath 'io.spring.gradle:spring-build-conventions:0.0.32.RELEASE'
 	}
 
 	repositories {
