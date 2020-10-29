@@ -77,7 +77,7 @@ task deployArtifacts {
 	description = 'Deploys the artifacts to either Artifactory or Maven Central'
 }
 
-if (version.matches(/^.*-RELEASE$/) || version.matches(/^.*-SR\d+$/)) {
+if (version.matches(/.*\.[0-9]+$/)) {
 	deployArtifacts.dependsOn uploadArchives
 }
 else {
