@@ -1,5 +1,5 @@
 ext {
-	coreVersion = '2.5.0-SNAPSHOT'
+	coreVersion = '2.5.0-M1'
 	dataMongoDbVersion = '2.4.1'
 	dataGeodeVersion = '2.5.0-SNAPSHOT'
 	dataRedisVersion = coreVersion
