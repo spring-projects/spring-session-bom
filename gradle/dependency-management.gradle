@@ -1,6 +1,6 @@
 ext {
 	coreVersion = '2.4.2'
-	dataMongoDbVersion = '2.4.2'
+	dataMongoDbVersion = '2.4.3'
 	dataGeodeVersion = '2.4.1'
 	dataRedisVersion = coreVersion
 	hazelcastVersion = coreVersion
