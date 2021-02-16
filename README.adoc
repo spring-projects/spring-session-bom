@@ -79,14 +79,20 @@ dependencies {
 }
 ----
 
+== Getting Help
+* Learn the Spring Session basics - check the https://spring.io/projects/spring-session[Spring Session project site] for documentation, support, samples, and guides.
+* Ask a question - we monitor https://stackoverflow.com[stackoverflow.com] for questions tagged with https://stackoverflow.com/tags/spring-session[`spring-session`].
+
+== Reporting Issues
+If you want to raise an issue, please report it in the appropriate Spring Session project:
+* For issues in Spring Session MongoDB, use https://github.com/spring-projects/spring-session-data-mongodb
+* For issues in Spring Session for Apache Geode or VMware Tanzu GemFire please use https://github.com/spring-projects/spring-session-data-geode
+* For issues in Spring Session Data Redis, JDBC, Hazelcast or in core Spring Session please use https://github.com/spring-projects/spring-session
+
 == Code of Conduct
 
 This project adheres to the Contributor Covenant link:CODE_OF_CONDUCT.adoc[code of conduct].
-By participating, you  are expected to uphold this code. Please report unacceptable behavior to spring-code-of-conduct@pivotal.io.
-
-== Spring Session Project Site
-
-You can find the documentation, issue management, support, samples, and guides for using Spring Session at https://projects.spring.io/spring-session/.
+By participating, you are expected to uphold this code. Please report unacceptable behavior to spring-code-of-conduct@pivotal.io.
 
 == License
 
