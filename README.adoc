@@ -1,5 +1,5 @@
-:release-version: Dragonfruit-RELEASE
-:dependency-management-plugin-version: 1.0.8.RELEASE
+:release-version: 2020.0.3
+:dependency-management-plugin-version: 1.0.11.RELEASE
 = Spring Session BOM
 
 This repository contains Spring Session Maven Bill of Materials (BOM).
