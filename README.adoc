@@ -1,5 +1,12 @@
 :release-version: Corn-RC1
 :dependency-management-plugin-version: 1.0.8.RELEASE
+
+[NOTE]
+======
+This branch of Spring Session BOM has reached its https://github.com/spring-projects/spring-boot/wiki/Supported-Versions[End of Life], meaning that there are no further maintenance releases or security patches planned.
+Please migrate to a supported branch as soon as possible.
+======
+
 = Spring Session BOM
 
 This repository contains Spring Session Maven Bill of Materials (BOM).
