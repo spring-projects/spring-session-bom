@@ -1,4 +1,4 @@
-:release-version: 2020.0.3
+:release-version: 2021.1.1
 :dependency-management-plugin-version: 1.0.11.RELEASE
 = Spring Session BOM
 
