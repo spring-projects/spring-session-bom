@@ -1,0 +1,83 @@
+== 1. Update Dependencies
+
+Dependencies are declared in `gradle/dependency-management.gradle`.
+Update the `coreVersion` to the corresponding version of `spring-session-core` and `dataGeodeVersion` to the corresponding version of `spring-session-data-geode`.
+
+Run all the checks:
+
+[source,bash]
+----
+$ ./gradlew check
+----
+
+Create separate issues for each dependency update and push the changes.
+
+== 2. Run the test project
+
+Ensure that the most recent SNAPSHOT is working, by testing it in a sample project, for example https://github.com/eleftherias/session-bom-sample.
+
+== 3. Check All Issues are Closed
+
+You can manually check at https://github.com/spring-projects/spring-session/milestones
+
+== 4. Update Release Version
+
+Update the version number in `gradle.properties` for the release, for example `2021.2.0-RC1`, `2021.1.0`.
+
+== 5. Build Locally
+
+Run the build using
+
+[source,bash]
+----
+$ ./gradlew check
+----
+
+== 6. Push the Release Commit
+
+Push the commit and Jenkins will build and deploy the artifacts.
+Wait for the artifact to appear in https://repo1.maven.org/maven2/org/springframework/session/spring-session-bom/
+
+== 7. Tag the release
+
+Tag the release and then push the tag
+
+....
+git tag 2021.2.0-RC1
+git push origin 2021.2.0-RC1
+....
+
+== 8. Update to Next Development Version
+
+Update `gradle.properties` version to next `+SNAPSHOT+` version, update the dependencies in `dependency-management.gradle` to the next `+SNAPSHOT+` versions and then push.
+
+== 9. Update version on project pages
+
+Update the versions on https://spring.io/projects for Spring Session.
+The reference documentation should point to the Spring Session Core reference documentation.
+
+== 10. Close / Create Milestone
+
+* In
+https://github.com/spring-projects/spring-session/milestones[GitHub
+Milestones], create a new milestone for the next release version.
+* Move any open issues from the existing milestone you just released to
+the new milestone.
+* Close the milestone for the release.
+
+Note: Spring Session typically releases only one milestone (M1) and one release candidate (RC1).
+
+== 11. Announce the release
+
+* Announce via Slack on
+https://pivotal.slack.com/messages/spring-release[#spring-release],
+including the keyword `+spring-session-announcing+` in the message.
+Something like:
+
+....
+spring-session-announcing 2022.0.0 is available.
+....
+
+== 12. Create a blog post
+
+Create a https://spring.io/admin/blog[blog post], you can find an example https://spring.io/blog/2022/02/23/spring-session-2021-0-5-and-2021-1-2-released[here].
