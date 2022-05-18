@@ -32,7 +32,7 @@ jobs:
   
   deploy_artifacts:
     name: Deploy Artifacts
-    needs: [build_jdk_11, snapshot_tests, check_samples, check_tangles]
+    needs: [prerequisites]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
