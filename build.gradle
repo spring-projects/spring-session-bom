@@ -1,87 +1,15 @@
-buildscript {
-	dependencies {
-		classpath 'io.spring.gradle:spring-build-conventions:0.0.38'
-		classpath 'io.spring.nohttp:nohttp-gradle:0.0.9'
-	}
-
-	repositories {
-		gradlePluginPortal()
-		maven { url 'https://repo.spring.io/plugins-release/' }
-	}
+plugins {
+	id 'io.spring.convention.bom'
 }
+group = "org.springframework.session"
 
-apply plugin: 'io.spring.convention.root'
-apply plugin: 'io.spring.convention.springdependencymangement'
-apply plugin: 'io.spring.convention.maven'
-apply plugin: 'io.spring.convention.artifactory'
-
-group = 'org.springframework.session'
-description = 'Spring Session Maven Bill of Materials (BOM)'
-
-artifacts {
-	archives file('spring-session-bom.txt')
-}
-
-dependencyManagement {
-	generatedPomCustomization {
-		enabled = true
+dependencies {
+	constraints {
+		api "org.springframework.session:spring-session-core:$springSessionCoreVersion"
+		api "org.springframework.session:spring-session-data-geode:$springSessionDataGeodeVersion"
+		api "org.springframework.session:spring-session-data-mongodb:$springSessionCoreVersion"
+		api "org.springframework.session:spring-session-data-redis:$springSessionCoreVersion"
+		api "org.springframework.session:spring-session-hazelcast:$springSessionCoreVersion"
+		api "org.springframework.session:spring-session-jdbc:$springSessionCoreVersion"
 	}
 }
-
-def installer = install.repositories.mavenInstaller
-def deployer = uploadArchives.repositories.mavenDeployer
-
-[installer, deployer]*.pom*.whenConfigured { pom ->
-	pom.project {
-		packaging = 'pom'
-		name = project.description
-		description = project.description
-		url = 'https://projects.spring.io/spring-session/'
-
-		organization {
-			name = 'Pivotal Software, Inc.'
-			url = 'https://spring.io/'
-		}
-
-		licenses {
-			license {
-				name = 'Apache License, Version 2.0'
-				url = 'https://www.apache.org/licenses/LICENSE-2.0'
-				distribution = 'repo'
-			}
-		}
-
-		developers {
-			developer {
-				id = 'rwinch'
-				name = 'Rob Winch'
-				email = 'rwinch@pivotal.io'
-			}
-		}
-
-		scm {
-			url = 'https://github.com/spring-projects/spring-session-bom'
-			connection = 'scm:git:git@github.com/spring-projects/spring-session-bom.git'
-			developerConnection = 'scm:git:git@github.com/spring-projects/spring-session-bom.git'
-		}
-
-		issueManagement {
-			system = 'GitHub'
-			url = 'https://github.com/spring-projects/spring-session/issues'
-		}
-	}
-}
-
-task deployArtifacts {
-	group = 'Deploy tasks'
-	description = 'Deploys the artifacts to either Artifactory or Maven Central'
-}
-
-if (version.matches(/.*\.[0-9]+$/)) {
-	deployArtifacts.dependsOn uploadArchives
-}
-else {
-	deployArtifacts.dependsOn artifactoryPublish
-}
-
-sonarqube.skipProject = true
