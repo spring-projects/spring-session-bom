@@ -87,7 +87,6 @@ dependencies {
 If you want to raise an issue, please report it in the appropriate Spring Session project:
 
 * For issues in Spring Session MongoDB, use https://github.com/spring-projects/spring-session-data-mongodb
-* For issues in Spring Session for Apache Geode or VMware Tanzu GemFire please use https://github.com/spring-projects/spring-session-data-geode
 * For issues in Spring Session Data Redis, JDBC, Hazelcast or in core Spring Session please use https://github.com/spring-projects/spring-session
 
 == Code of Conduct

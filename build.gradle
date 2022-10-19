@@ -10,7 +10,6 @@ group = "org.springframework.session"
 dependencies {
 	constraints {
 		api "org.springframework.session:spring-session-core:$springSessionCoreVersion"
-		api "org.springframework.session:spring-session-data-geode:$springSessionDataGeodeVersion"
 		api "org.springframework.session:spring-session-data-mongodb:$springSessionCoreVersion"
 		api "org.springframework.session:spring-session-data-redis:$springSessionCoreVersion"
 		api "org.springframework.session:spring-session-hazelcast:$springSessionCoreVersion"

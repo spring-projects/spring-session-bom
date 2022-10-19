@@ -1,7 +1,7 @@
 == 1. Update Dependencies
 
 Dependencies are declared in `gradle/dependency-management.gradle`.
-Update the `coreVersion` to the corresponding version of `spring-session-core` and `dataGeodeVersion` to the corresponding version of `spring-session-data-geode`.
+Update the `coreVersion` to the corresponding version of `spring-session-core`.
 
 Run all the checks:
 
