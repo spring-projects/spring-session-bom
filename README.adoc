@@ -1,6 +1,6 @@
 :release-version: 2021.1.1
 :dependency-management-plugin-version: 1.0.11.RELEASE
-= Spring Session BOM
+= Spring Session BOM image:https://img.shields.io/badge/Revved%20up%20by-Gradle%20Enterprise-06A0CE?logo=Gradle&labelColor=02303A["Revved up by Gradle Enterprise", link="https://ge.spring.io/scans?&search.rootProjectNames=spring-session-bom"]
 
 This repository contains Spring Session Maven Bill of Materials (BOM).
 
