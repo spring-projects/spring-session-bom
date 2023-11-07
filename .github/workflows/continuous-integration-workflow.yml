@@ -25,7 +25,7 @@ jobs:
       - id: continue
         name: Determine if should continue
         if: env.RUN_JOBS == 'true'
-        run: echo "::set-output name=runjobs::true"
+        run: echo "runjobs=true" >> $GITHUB_OUTPUT
   
   deploy_artifacts:
     name: Deploy Artifacts
